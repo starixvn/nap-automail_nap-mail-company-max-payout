@@ -47,5 +47,6 @@ public class HttpContextHelper : IHttpContextHelper
 
     public void SetSession(string key, string value)
     {
+        // nothing todo
     }
 }

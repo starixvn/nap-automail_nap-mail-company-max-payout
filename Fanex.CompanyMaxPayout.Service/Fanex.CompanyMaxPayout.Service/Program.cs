@@ -15,7 +15,7 @@ builder.Services.SentryRegister();
 builder.Services.FanexDataRegister(builder.Configuration);
 builder.Services.InternalServiceRegister();
 builder.Services.RemotingRefRegister();
-builder.Services.StartScheduler();
+await builder.Services.StartScheduler();
 
 var app = builder.Build();
 

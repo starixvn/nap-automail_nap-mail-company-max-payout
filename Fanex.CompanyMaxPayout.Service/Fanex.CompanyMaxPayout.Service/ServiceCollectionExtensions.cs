@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using LetstalkConfig = Fanex.LetstalkService.Core.Services.AppConfigService;
 
 namespace Fanex.CompanyMaxPayout.Service;
@@ -89,10 +90,10 @@ public static class ServiceCollectionExtensions
         OnebookUmInitializer.RegisterSimpleInjector(services);
     }
 
-    public static void StartScheduler(this IServiceCollection services)
+    public static async Task StartScheduler(this IServiceCollection services)
     {
         var serviceProvider = services.BuildServiceProvider();
-        var scheduler = StdSchedulerFactory.GetDefaultScheduler().Result;
+        var scheduler = await StdSchedulerFactory.GetDefaultScheduler();
         scheduler.JobFactory = new CompanyMaxPayoutJobFactory(serviceProvider);
 
         var trigger = TriggerBuilder.Create()
@@ -102,7 +103,7 @@ public static class ServiceCollectionExtensions
             .Build();
 
         var job = JobBuilder.Create<CompanyMaxPayoutJob>().Build();
-        scheduler.ScheduleJob(job, trigger).Wait();
-        scheduler.Start().Wait();
+        await scheduler.ScheduleJob(job, trigger);
+        await scheduler.Start();
     }
 }
