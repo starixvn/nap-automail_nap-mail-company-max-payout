@@ -18,6 +18,8 @@ public class MaxPayoutMemUpdCommand : NonQueryCommand
         row.SetAttribute("transactiontime", member.TransactionTime.ToString(CultureInfo.InvariantCulture));
         row.SetAttribute("groupid", member.GroupId.ToString(CultureInfo.InvariantCulture));
         row.SetAttribute("levelid", member.LevelId.ToString(CultureInfo.InvariantCulture));
+        row.SetAttribute("ticketrefno", member.TicketRefNo);
+        row.SetAttribute("logid", member.LogId);
         root.AppendChild(row);
 
         doc.AppendChild(root);

@@ -41,10 +41,10 @@ public class MessageServiceImp : MessageService
             $"Game Type: {string.Join(", ", member.ShortGameTypes)}",
             $"Username: {member.UserName}",
             $"Site: {member.Site}",
-            $"Ticket Refno: {member.TicketRefNo}",
+            $"Ticket Ref No: {member.TicketRefNo}",
             $"Transaction Time: {member.TransactionTime:MM/dd/yyyy HH:mm:ss}",
-            $"Actual Payout: {member.ActualPayout:#,###} ({member.Currency})",
-            $"Company Max Payout: {member.CompanyMaxPayout:#,###} ({member.Currency})",
+            $"Actual Payout: {member.ActualPayout:#,###.00} ({member.Currency})",
+            $"Company Max Payout: {member.CompanyMaxPayout:#,###.00} ({member.Currency})",
             "Please check and carry out timely actions accordingly."
         };
 

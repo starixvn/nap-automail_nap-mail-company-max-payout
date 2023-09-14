@@ -31,6 +31,8 @@ public class MemberModel
 
     public decimal GroupId { get; set; }
 
+    public string LogId { get; set; }
+
     public List<string> FullGameTypes { get; set; }
 
     public List<string> ShortGameTypes { get; set; }

@@ -64,17 +64,19 @@ public class TransformServiceImp : TransformService
         }
 
         var ids = new List<string>(bettypeIdList.Split(','));
-        for (var index = 0; index < ids.Count; index++)
+        foreach (var id in ids)
         {
-            if (index < maxIndex)
+            if (gameTypes.Count > maxIndex)
             {
-                var id = ids[index];
-                var sportName = ParseHappy5BettypeSporttype(id);
-                gameTypes.Add(cacheRefService.GetBettypeName(id) + " " + sportName);
+                if (!gameTypes.Contains("and other games"))
+                {
+                    gameTypes.Add("and other games...");
+                }
             }
             else
             {
-                gameTypes.Add("and other games...");
+                var sportName = ParseHappy5BettypeSporttype(id);
+                gameTypes.Add(cacheRefService.GetBettypeName(id) + " " + sportName);
             }
         }
 
