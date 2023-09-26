@@ -25,4 +25,6 @@ public class ConfigSettingModel
     public int ProductId { get; set; }
 
     public string UserName { get; set; }
+
+    public string Environment { get; set; }
 }
