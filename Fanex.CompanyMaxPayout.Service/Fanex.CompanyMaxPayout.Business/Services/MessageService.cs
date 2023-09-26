@@ -25,7 +25,7 @@ public class MessageServiceImp : MessageService
         var letstalkModel = new LetstalkModel
         {
             TargetName = $"{AppConfigService.Config.TargetName}",
-            Subject = "Company Max Payout Alert",
+            Subject = $"{AppConfigService.Config.Environment}Company Max Payout Alert",
             Content = TransformMessage(member),
             Group = AppConfigService.Config.LetstalkGroup
         };
