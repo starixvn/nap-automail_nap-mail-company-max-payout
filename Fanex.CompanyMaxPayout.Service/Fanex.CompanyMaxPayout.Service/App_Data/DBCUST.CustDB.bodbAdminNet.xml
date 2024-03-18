@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Functions>
-	<Function SiteId="25" SiteName="CWL">
-		<Setting Key="NAP_MaxPayout_Notification_MemSel" SpName="NAP_MaxPayout_Notification_MemSel" DbName="DBCUST.CustDB.bodbAdminNet" Timeout="0" />
-		<Setting Key="NAP_MaxPayout_Notification_MemUpd" SpName="NAP_MaxPayout_Notification_MemUpd" DbName="DBCUST.CustDB.bodbAdminNet" Timeout="0" />
-	</Function>
-</Functions>
