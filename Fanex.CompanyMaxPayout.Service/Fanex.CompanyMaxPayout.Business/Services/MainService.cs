@@ -33,7 +33,7 @@ public class MainServiceImp : MainService
         {
             var rawData = dataService.QueryMembers();
             var members = transformService.Execute(rawData);
-            log.Log($"Fanex.CompanyMaxPayout.Service [{members.Count}]");
+            //log.Log($"Fanex.CompanyMaxPayout.Service [{members.Count}]");
             members.ForEach(member =>
             {
                 var result = messageService.Send(member);
