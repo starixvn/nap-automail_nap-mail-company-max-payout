@@ -1,12 +1,10 @@
-﻿using ONEbook.UM.Configurations;
+﻿using System;
 
 namespace Fanex.CompanyMaxPayout.Business.Models;
 
 public class ConfigSettingModel
 {
-    public string SentryClientKey { get; set; }
-
-    public string CategorySentryLog { get; set; }
+    private static readonly DateTimeOffset StartTime = DateTimeOffset.Now;
 
     public string LetstalkServiceApi { get; set; }
 
@@ -16,10 +14,6 @@ public class ConfigSettingModel
 
     public string RemotingRefUrl { get; set; }
 
-    public UMClientConfiguration UmConfig { get; set; }
-
-    public string CronSchedule { get; set; } = "0/10 * * * * ?";
-
     public bool IsRealCurrency { get; set; }
 
     public int ProductId { get; set; }
@@ -27,4 +21,19 @@ public class ConfigSettingModel
     public string UserName { get; set; }
 
     public string Environment { get; set; }
+
+    private const int Twelve = 12;
+    private const int TwentyOne = 21;
+    private const int TwentyTwo = 22;
+
+    public bool LifeCycleCompleted
+    {
+        get
+        {
+            var workedHours = (DateTimeOffset.Now - StartTime).TotalHours;
+            return workedHours >= Twelve && DateTimeOffset.Now.Hour >= TwentyOne && DateTimeOffset.Now.Hour <= TwentyTwo;
+        }
+    }
+
+    public bool SafeToRestart => LifeCycleCompleted;
 }

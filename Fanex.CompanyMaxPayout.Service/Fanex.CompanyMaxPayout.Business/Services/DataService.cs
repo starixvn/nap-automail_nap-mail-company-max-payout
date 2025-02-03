@@ -13,15 +13,8 @@ public interface DataService
     void UpdateNotifyMember(MemberModel member);
 }
 
-public class DataServiceImp : DataService
+public class DataServiceImp(IDynamicRepository repository) : DataService
 {
-    private readonly IDynamicRepository repository;
-
-    public DataServiceImp(IDynamicRepository repository)
-    {
-        this.repository = repository;
-    }
-
     public List<MemberModel> QueryMembers()
     {
         var criteria = new MaxPayoutMemSelCriteria

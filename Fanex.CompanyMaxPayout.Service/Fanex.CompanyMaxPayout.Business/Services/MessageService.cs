@@ -1,6 +1,6 @@
 ﻿using Fanex.CompanyMaxPayout.Business.Models;
 using Fanex.LetstalkService.Client;
-using Fanex.LetstalkService.Core.Models;
+using Fanex.LetstalkService.Client.Models;
 using System;
 using System.Collections.Generic;
 
@@ -11,15 +11,8 @@ public interface MessageService
     bool Send(MemberModel member);
 }
 
-public class MessageServiceImp : MessageService
+public class MessageServiceImp(LetstalkClientService letstalkService) : MessageService
 {
-    private readonly LetstalkClientService letstalkService;
-
-    public MessageServiceImp(LetstalkClientService letstalkService)
-    {
-        this.letstalkService = letstalkService;
-    }
-
     public bool Send(MemberModel member)
     {
         var letstalkModel = new LetstalkModel
