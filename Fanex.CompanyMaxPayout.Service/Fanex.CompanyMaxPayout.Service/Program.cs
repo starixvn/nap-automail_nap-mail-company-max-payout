@@ -13,7 +13,7 @@ var configuration = builder.Configuration;
 services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
-services.AddConfiguration();
+services.AddConf();
 services.AddFanexSql(configuration);
 services.AddFanexLogSentry(configuration);
 services.AddOneBookUmForService(configuration);
@@ -23,8 +23,13 @@ services.AddRemotingRef();
 services.AddHostedService<MainBackgroundService>();
 
 var app = builder.Build();
+
+// Configure the HTTP request pipeline
+app.UseDeveloperExceptionPage();
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.UseRouting();
 
 app.MapControllers();
 
