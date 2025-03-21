@@ -9,16 +9,10 @@ public interface TransformService
     List<MemberModel> Execute(List<MemberModel> members);
 }
 
-public class TransformServiceImp : TransformService
+public class TransformServiceImp(CacheRefService cacheRefService) : TransformService
 {
-    private readonly CacheRefService cacheRefService;
-    private readonly List<string> happy5Bettypes = new() { "8101", "8102", "8103", "8104", "8105" };
+    private readonly List<string> happy5Bettypes = ["8101", "8102", "8103", "8104", "8105"];
     private const string Happy5Sport = "(Happy 5)";
-
-    public TransformServiceImp(CacheRefService cacheRefService)
-    {
-        this.cacheRefService = cacheRefService;
-    }
 
     public List<MemberModel> Execute(List<MemberModel> members)
     {
