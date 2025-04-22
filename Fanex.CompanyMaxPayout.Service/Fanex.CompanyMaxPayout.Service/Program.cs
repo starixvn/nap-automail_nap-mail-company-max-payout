@@ -13,7 +13,7 @@ var configuration = builder.Configuration;
 services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
-services.AddConf();
+services.AddConfiguration();
 services.AddFanexSql(configuration);
 services.AddFanexLogSentry(configuration);
 services.AddOneBookUmForService(configuration);
