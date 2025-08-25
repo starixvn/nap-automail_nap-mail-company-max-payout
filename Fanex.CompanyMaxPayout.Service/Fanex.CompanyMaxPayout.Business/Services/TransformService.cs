@@ -35,7 +35,7 @@ public class TransformServiceImp(CacheRefService cacheRefService) : TransformSer
         var gameTypes = new List<string>();
         if (string.IsNullOrEmpty(bettypeIdList))
         {
-            return new List<string>();
+            return [];
         }
 
         var ids = new List<string>(bettypeIdList.Split(','));
@@ -54,7 +54,7 @@ public class TransformServiceImp(CacheRefService cacheRefService) : TransformSer
         var gameTypes = new List<string>();
         if (string.IsNullOrEmpty(bettypeIdList))
         {
-            return new List<string>();
+            return [];
         }
 
         var ids = new List<string>(bettypeIdList.Split(','));
