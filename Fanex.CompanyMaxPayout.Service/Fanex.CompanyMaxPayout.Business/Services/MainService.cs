@@ -24,6 +24,9 @@ public class MainServiceImp(
 
             members.ForEach(member =>
             {
+                member.ActualPayout /= 1000;
+                member.CompanyMaxPayout /= 1000;
+
                 var result = messageService.Send(member);
                 if (result)
                 {
